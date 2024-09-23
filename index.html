@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Jogo da Velha</h1>
+    </div>
+    <div class="container">
+        <div class="player-names">
+            <input type="text" id="player1" placeholder="Nome do Jogador 1" />
+            <input type="text" id="player2" placeholder="Nome do Jogador 2" />
+            <div class="controls">
+                <button id="restart-button">Reiniciar Jogo</button>
+                <button id="toggle-theme">Modo Dark</button>
+            </div>
+        </div>
+        <div class="board">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="status"></div>
+        <div class="history">
+            <h2>Histórico de Jogo</h2>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    <div class="message-box"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+

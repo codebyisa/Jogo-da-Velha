@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+    background: #222; /* Fundo escuro padrão para modo escuro */
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #dadada75; /* Fundo escuro para o cabeçalho */
+    max-height: 55px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #f8f8f8; 
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.history {
+    position: absolute;
+    right: 15px; /* Distância da direita */
+    top: 120px; /* Distância do topo */
+    background-color: rgba(255, 255, 255, 0.418); /* Fundo semi-transparente */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+    color: #fff; /* Texto branco */
+    width: 250px; /* Largura do histórico */
+    max-height: 120px; /* Altura máxima */
+    overflow-y: auto; /* Permite rolagem se o conteúdo exceder a altura */
+}
+
+.history ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 20px;
+}
+
+.container {
+    font-family: 'Fira Sans', sans-serif; 
+    font-size: 20px;
+    color: #f8f8f8; /* Cor do texto clara para melhor contraste */
+    display: flex;
+    flex-direction: column; /* Altera a direção para coluna */
+    align-items: center; /* Alinha ao centro */
+    height: 100vh;
+    padding: 20px;
+}
+
+.player-names {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+#toggle-theme {
+    position: absolute; /* Posiciona de forma absoluta */
+    top: 20px; 
+    right: 20px; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border-style: hidden; 
+    background-color: #07a2bd6c; 
+    color: #fff; 
+    cursor: pointer; 
+    font-size: 1em; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 4px;
+    margin-top: 20px;
+    border: 2px solid #c0c0c0; /* Bordas mais suaves */
+    border-radius: 10px;
+    background-color: #333; /* Fundo do tabuleiro escuro */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Efeito de brilho suave */
+}
+
+.square {
+    background-color: #444; 
+    border: 1px solid #c0c0c0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.square.clicked {
+    transform: scale(1.1); /* Animação de clique */
+}
+
+
+.status {
+    font-family: 'Fira Sans', sans-serif; 
+    color: #e9e9e9;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: hidden;
+    border: 1px solid #252525;
+    text-align: center;
+    top: 25px;
+    margin-top: 5px;
+    background-color: #d6d6d6b6;
+}
+
+.message-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(50, 50, 50, 0.9); /* Fundo escuro e semi-transparente */
+    color: #fff;
+    padding: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 2em;
+    border-radius: 10px;
+    border: 2px solid #c0c0c0; /* Bordas suaves */
+}
+
+input {
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+body.dark {
+    background-image: url(imagens/gifnoite4.gif); 
+    color: #f8f8f8;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+body.dark button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #18135c; 
+    color: #d6d6d6; 
+    font-size: 1em;
+    border-style: double;
+}
+
+body.dark .square {
+    background-color: #6e2eb87c; 
+    border: 1px solid #c0c0c0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eeeeee; 
+    font-size: 3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark .square:hover {
+    background-color: #23c8d4be; 
+}
+
+body.light {
+    background-image: url(imagens/gifdia8.gif);
+    background-size: cover; 
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-position: center; /* Centraliza a imagem */
+    color: #f8f8f8;
+}
+
+body.light button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border-style:double;
+    background-color: #ffa47a; 
+    color: #222; 
+    font-size: 1em;
+}
+
+body.light .board {
+    border: 2px solid #444; 
+    background-color: #fff; 
+}
+
+body.light .square {
+    background-color: #2519c770; 
+    border: 1px solid #c0c0c0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #252525; 
+    font-size: 3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.light .square:hover {
+    background-color: #fd891ba4; 
+}
+
+body.light .status {
+    color: #222;
+}
+
+body.light #toggle-theme {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    border-style: hidden; 
+    background-color: #ff7504; 
+    color: #fff; 
+    cursor: pointer; 
+    font-size: 1em; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+@media (max-width: 768px) {
+    .history {
+        width: 90%; /* Ajusta a largura do histórico em telas menores */
+        position: relative; /* Altera o posicionamento */
+        top: auto; /* Remove o espaçamento do topo */
+    }
+}
